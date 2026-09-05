@@ -1,0 +1,2020 @@
+{
+ "workload": "mix-200",
+ "shape": {
+  "calls": 7700,
+  "patterns": 199,
+  "bytes": 639475,
+  "max_calls_per_pattern": 1500,
+  "mean_subject_bytes": 83.0487012987013
+ },
+ "oracle": {
+  "oracle_ns": 30395338.0,
+  "best_fixed_tier_ns": 30395338.0,
+  "free_promotion_ns": 4247705.0,
+  "never_ns": 1336950260.0
+ },
+ "schedules": {
+  "\\d+\\.\\d+\\.\\d+\\.\\d+": {
+   "cost_ns": 2562222.0,
+   "dfa_at": 0,
+   "jit_at": 0,
+   "calls": 1500,
+   "states": 8,
+   "code_bytes": 343
+  },
+  "\\.css|\\.js|\\.png": {
+   "cost_ns": 2003725.0,
+   "dfa_at": 0,
+   "jit_at": 0,
+   "calls": 1500,
+   "states": 7,
+   "code_bytes": 338
+  },
+  "\"(GET|POST|PUT|DELETE) /api/v\\d+/\\w+": {
+   "cost_ns": 5815579.0,
+   "dfa_at": 0,
+   "jit_at": 0,
+   "calls": 1500,
+   "states": 22,
+   "code_bytes": 1124
+  },
+  " (4|5)\\d\\d ": {
+   "cost_ns": 1604550.0,
+   "dfa_at": 0,
+   "jit_at": 0,
+   "calls": 1500,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "id=\\d+": {
+   "cost_ns": 1540999.0,
+   "dfa_at": 0,
+   "jit_at": 0,
+   "calls": 1500,
+   "states": 5,
+   "code_bytes": 220
+  },
+  "gdf\\d{1}[a-z]{1,3}": {
+   "cost_ns": 140371.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "bbg\\d{2}[a-z]{1,5}": {
+   "cost_ns": 67546.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 311
+  },
+  "bca\\d{2}[a-z]{1,5}": {
+   "cost_ns": 100788.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "fdb\\d{2}[a-z]{1,3}": {
+   "cost_ns": 76682.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "faf\\d{3}[a-z]{1,5}": {
+   "cost_ns": 66809.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "dag\\d{1}[a-z]{1,3}": {
+   "cost_ns": 65793.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "gbd\\d{3}[a-z]{1,4}": {
+   "cost_ns": 68660.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "agg\\d{3}[a-z]{1,5}": {
+   "cost_ns": 78027.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "cge\\d{1}[a-z]{1,2}": {
+   "cost_ns": 73870.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "gdd\\d{3}[a-z]{1,3}": {
+   "cost_ns": 69071.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "deg\\d{3}[a-z]{1,3}": {
+   "cost_ns": 64518.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "ghd\\d{3}[a-z]{1,5}": {
+   "cost_ns": 95067.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "fgh\\d{2}[a-z]{1,3}": {
+   "cost_ns": 145319.0,
+   "dfa_at": 2,
+   "jit_at": 2,
+   "calls": 2,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "abh\\d{3}[a-z]{1,4}": {
+   "cost_ns": 251384.0,
+   "dfa_at": 2,
+   "jit_at": 2,
+   "calls": 2,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "fef\\d{2}[a-z]{1,5}": {
+   "cost_ns": 65144.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "cgf\\d{3}[a-z]{1,5}": {
+   "cost_ns": 115692.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "fff\\d{2}[a-z]{1,5}": {
+   "cost_ns": 75445.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 302
+  },
+  "hca\\d{2}[a-z]{1,4}": {
+   "cost_ns": 169427.0,
+   "dfa_at": 2,
+   "jit_at": 2,
+   "calls": 2,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "ddg\\d{1}[a-z]{1,4}": {
+   "cost_ns": 66438.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "ffd\\d{1}[a-z]{1,4}": {
+   "cost_ns": 70900.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "hcb\\d{3}[a-z]{1,3}": {
+   "cost_ns": 120216.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "fhg\\d{1}[a-z]{1,4}": {
+   "cost_ns": 65038.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "feb\\d{3}[a-z]{1,5}": {
+   "cost_ns": 73262.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "ach\\d{1}[a-z]{1,5}": {
+   "cost_ns": 76250.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "ggc\\d{2}[a-z]{1,3}": {
+   "cost_ns": 73149.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 311
+  },
+  "dfg\\d{2}[a-z]{1,5}": {
+   "cost_ns": 68858.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "hbe\\d{2}[a-z]{1,2}": {
+   "cost_ns": 70986.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "eae\\d{2}[a-z]{1,5}": {
+   "cost_ns": 66262.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "hcb\\d{3}[a-z]{1,4}": {
+   "cost_ns": 159738.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "fhh\\d{3}[a-z]{1,3}": {
+   "cost_ns": 69971.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "gcd\\d{1}[a-z]{1,5}": {
+   "cost_ns": 196342.0,
+   "dfa_at": 2,
+   "jit_at": 2,
+   "calls": 2,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "adg\\d{2}[a-z]{1,2}": {
+   "cost_ns": 80946.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "cfc\\d{2}[a-z]{1,4}": {
+   "cost_ns": 81079.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "efg\\d{2}[a-z]{1,4}": {
+   "cost_ns": 70810.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "gfb\\d{2}[a-z]{1,4}": {
+   "cost_ns": 72424.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "ggh\\d{1}[a-z]{1,2}": {
+   "cost_ns": 71041.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "fgf\\d{2}[a-z]{1,4}": {
+   "cost_ns": 85978.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "cga\\d{1}[a-z]{1,5}": {
+   "cost_ns": 147528.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "dce\\d{3}[a-z]{1,4}": {
+   "cost_ns": 70808.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "afc\\d{3}[a-z]{1,4}": {
+   "cost_ns": 133517.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "bfa\\d{3}[a-z]{1,2}": {
+   "cost_ns": 93320.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "chf\\d{1}[a-z]{1,5}": {
+   "cost_ns": 76960.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "aad\\d{1}[a-z]{1,5}": {
+   "cost_ns": 102460.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "cbh\\d{3}[a-z]{1,2}": {
+   "cost_ns": 74934.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "dff\\d{1}[a-z]{1,5}": {
+   "cost_ns": 93900.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "egf\\d{3}[a-z]{1,3}": {
+   "cost_ns": 83644.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "ddb\\d{2}[a-z]{1,2}": {
+   "cost_ns": 73396.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 311
+  },
+  "gee\\d{1}[a-z]{1,2}": {
+   "cost_ns": 68215.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "afe\\d{1}[a-z]{1,3}": {
+   "cost_ns": 105319.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "bcd\\d{1}[a-z]{1,2}": {
+   "cost_ns": 75781.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "fcc\\d{2}[a-z]{1,2}": {
+   "cost_ns": 156808.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "fha\\d{3}[a-z]{1,3}": {
+   "cost_ns": 67160.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "hef\\d{3}[a-z]{1,3}": {
+   "cost_ns": 75491.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "bfg\\d{1}[a-z]{1,5}": {
+   "cost_ns": 68973.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "efg\\d{1}[a-z]{1,2}": {
+   "cost_ns": 74192.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "cdh\\d{1}[a-z]{1,4}": {
+   "cost_ns": 70506.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "abf\\d{1}[a-z]{1,5}": {
+   "cost_ns": 76816.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "eaf\\d{1}[a-z]{1,4}": {
+   "cost_ns": 72810.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "hbc\\d{1}[a-z]{1,4}": {
+   "cost_ns": 92043.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "ada\\d{3}[a-z]{1,2}": {
+   "cost_ns": 73527.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "gbb\\d{3}[a-z]{1,2}": {
+   "cost_ns": 69242.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "feg\\d{1}[a-z]{1,5}": {
+   "cost_ns": 67978.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "aca\\d{3}[a-z]{1,4}": {
+   "cost_ns": 139983.0,
+   "dfa_at": 2,
+   "jit_at": 2,
+   "calls": 2,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "hgb\\d{2}[a-z]{1,4}": {
+   "cost_ns": 189665.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "bda\\d{1}[a-z]{1,4}": {
+   "cost_ns": 68573.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "bge\\d{2}[a-z]{1,2}": {
+   "cost_ns": 66083.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "fbc\\d{3}[a-z]{1,3}": {
+   "cost_ns": 69627.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "cfa\\d{1}[a-z]{1,3}": {
+   "cost_ns": 137697.0,
+   "dfa_at": 2,
+   "jit_at": 2,
+   "calls": 2,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "ghh\\d{1}[a-z]{1,4}": {
+   "cost_ns": 73515.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "ggd\\d{2}[a-z]{1,3}": {
+   "cost_ns": 69078.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 311
+  },
+  "cbe\\d{2}[a-z]{1,2}": {
+   "cost_ns": 68113.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "fad\\d{2}[a-z]{1,2}": {
+   "cost_ns": 79115.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "fhf\\d{2}[a-z]{1,2}": {
+   "cost_ns": 98175.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "gfc\\d{1}[a-z]{1,3}": {
+   "cost_ns": 68332.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "fcg\\d{2}[a-z]{1,4}": {
+   "cost_ns": 67134.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "ffd\\d{3}[a-z]{1,5}": {
+   "cost_ns": 66033.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 361
+  },
+  "gde\\d{1}[a-z]{1,5}": {
+   "cost_ns": 143492.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "edg\\d{1}[a-z]{1,3}": {
+   "cost_ns": 67164.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "cgg\\d{3}[a-z]{1,5}": {
+   "cost_ns": 67074.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "efc\\d{1}[a-z]{1,4}": {
+   "cost_ns": 69676.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "afh\\d{2}[a-z]{1,2}": {
+   "cost_ns": 65662.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "bdb\\d{3}[a-z]{1,5}": {
+   "cost_ns": 68698.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "eeg\\d{1}[a-z]{1,5}": {
+   "cost_ns": 68798.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "had\\d{3}[a-z]{1,5}": {
+   "cost_ns": 98683.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "dfc\\d{1}[a-z]{1,4}": {
+   "cost_ns": 69519.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "hdf\\d{2}[a-z]{1,3}": {
+   "cost_ns": 68386.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "gce\\d{1}[a-z]{1,4}": {
+   "cost_ns": 66795.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "gbf\\d{2}[a-z]{1,3}": {
+   "cost_ns": 75925.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "gef\\d{3}[a-z]{1,4}": {
+   "cost_ns": 66085.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "egc\\d{3}[a-z]{1,5}": {
+   "cost_ns": 146379.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "dha\\d{2}[a-z]{1,2}": {
+   "cost_ns": 76794.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "gde\\d{3}[a-z]{1,2}": {
+   "cost_ns": 64815.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "ghe\\d{2}[a-z]{1,5}": {
+   "cost_ns": 64258.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "bfg\\d{2}[a-z]{1,5}": {
+   "cost_ns": 93176.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "aeh\\d{3}[a-z]{1,4}": {
+   "cost_ns": 68520.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "feh\\d{1}[a-z]{1,5}": {
+   "cost_ns": 66569.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "acg\\d{3}[a-z]{1,4}": {
+   "cost_ns": 66778.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "adh\\d{2}[a-z]{1,2}": {
+   "cost_ns": 66710.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "ffd\\d{2}[a-z]{1,5}": {
+   "cost_ns": 76285.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 311
+  },
+  "dgh\\d{2}[a-z]{1,3}": {
+   "cost_ns": 71239.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "dcg\\d{3}[a-z]{1,4}": {
+   "cost_ns": 64565.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "bdh\\d{3}[a-z]{1,2}": {
+   "cost_ns": 70179.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "dgd\\d{3}[a-z]{1,4}": {
+   "cost_ns": 144417.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "gac\\d{3}[a-z]{1,3}": {
+   "cost_ns": 71648.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "beg\\d{2}[a-z]{1,3}": {
+   "cost_ns": 67870.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "cec\\d{3}[a-z]{1,2}": {
+   "cost_ns": 95001.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "edh\\d{1}[a-z]{1,4}": {
+   "cost_ns": 68006.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "dba\\d{3}[a-z]{1,5}": {
+   "cost_ns": 74678.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "ggb\\d{1}[a-z]{1,3}": {
+   "cost_ns": 69530.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "dcf\\d{2}[a-z]{1,5}": {
+   "cost_ns": 65530.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "dda\\d{2}[a-z]{1,2}": {
+   "cost_ns": 65675.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 311
+  },
+  "bef\\d{3}[a-z]{1,3}": {
+   "cost_ns": 65486.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "gbb\\d{1}[a-z]{1,5}": {
+   "cost_ns": 67344.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "hhg\\d{1}[a-z]{1,3}": {
+   "cost_ns": 76040.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "cgc\\d{2}[a-z]{1,4}": {
+   "cost_ns": 68640.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "hed\\d{2}[a-z]{1,2}": {
+   "cost_ns": 143952.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "daa\\d{1}[a-z]{1,5}": {
+   "cost_ns": 77724.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "ghe\\d{2}[a-z]{1,3}": {
+   "cost_ns": 63429.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "cfh\\d{2}[a-z]{1,2}": {
+   "cost_ns": 69044.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "efg\\d{1}[a-z]{1,4}": {
+   "cost_ns": 65505.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "ggd\\d{3}[a-z]{1,2}": {
+   "cost_ns": 69900.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 361
+  },
+  "gbc\\d{3}[a-z]{1,3}": {
+   "cost_ns": 69356.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "cce\\d{1}[a-z]{1,4}": {
+   "cost_ns": 128900.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "ccb\\d{1}[a-z]{1,4}": {
+   "cost_ns": 69833.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "hhe\\d{2}[a-z]{1,3}": {
+   "cost_ns": 74282.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 311
+  },
+  "eeh\\d{1}[a-z]{1,2}": {
+   "cost_ns": 76214.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "fce\\d{3}[a-z]{1,5}": {
+   "cost_ns": 123548.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "fgc\\d{3}[a-z]{1,5}": {
+   "cost_ns": 165046.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "bdg\\d{3}[a-z]{1,3}": {
+   "cost_ns": 187659.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "cdc\\d{3}[a-z]{1,5}": {
+   "cost_ns": 70047.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "fbh\\d{2}[a-z]{1,2}": {
+   "cost_ns": 93531.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "dca\\d{1}[a-z]{1,5}": {
+   "cost_ns": 65570.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "bee\\d{2}[a-z]{1,5}": {
+   "cost_ns": 75325.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "ffd\\d{3}[a-z]{1,2}": {
+   "cost_ns": 69605.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 361
+  },
+  "bec\\d{3}[a-z]{1,5}": {
+   "cost_ns": 67159.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "eac\\d{1}[a-z]{1,4}": {
+   "cost_ns": 70248.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "bgc\\d{1}[a-z]{1,3}": {
+   "cost_ns": 69469.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "bgg\\d{2}[a-z]{1,4}": {
+   "cost_ns": 67364.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "dfg\\d{3}[a-z]{1,5}": {
+   "cost_ns": 67671.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "gee\\d{3}[a-z]{1,4}": {
+   "cost_ns": 67750.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "ach\\d{2}[a-z]{1,3}": {
+   "cost_ns": 70240.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "beh\\d{1}[a-z]{1,5}": {
+   "cost_ns": 68102.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "chg\\d{3}[a-z]{1,3}": {
+   "cost_ns": 168874.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "fdh\\d{2}[a-z]{1,4}": {
+   "cost_ns": 87428.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "fcf\\d{3}[a-z]{1,3}": {
+   "cost_ns": 74170.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "bdd\\d{2}[a-z]{1,4}": {
+   "cost_ns": 90191.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "haf\\d{3}[a-z]{1,4}": {
+   "cost_ns": 66946.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "cah\\d{3}[a-z]{1,5}": {
+   "cost_ns": 70052.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "bhf\\d{1}[a-z]{1,4}": {
+   "cost_ns": 133282.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "hhg\\d{1}[a-z]{1,4}": {
+   "cost_ns": 116314.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "egd\\d{3}[a-z]{1,4}": {
+   "cost_ns": 115571.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "dde\\d{2}[a-z]{1,3}": {
+   "cost_ns": 144141.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 311
+  },
+  "baf\\d{1}[a-z]{1,5}": {
+   "cost_ns": 109121.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "bdd\\d{3}[a-z]{1,5}": {
+   "cost_ns": 110276.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "ahg\\d{3}[a-z]{1,3}": {
+   "cost_ns": 106834.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "gcd\\d{3}[a-z]{1,2}": {
+   "cost_ns": 213173.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "hge\\d{2}[a-z]{1,4}": {
+   "cost_ns": 104802.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "gfg\\d{3}[a-z]{1,3}": {
+   "cost_ns": 148788.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "dga\\d{3}[a-z]{1,4}": {
+   "cost_ns": 81625.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "cha\\d{3}[a-z]{1,3}": {
+   "cost_ns": 75173.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "deg\\d{1}[a-z]{1,3}": {
+   "cost_ns": 68544.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "fgg\\d{2}[a-z]{1,4}": {
+   "cost_ns": 66422.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "ffa\\d{1}[a-z]{1,2}": {
+   "cost_ns": 69208.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "cfd\\d{3}[a-z]{1,2}": {
+   "cost_ns": 65477.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "aae\\d{3}[a-z]{1,2}": {
+   "cost_ns": 67397.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 361
+  },
+  "ccg\\d{1}[a-z]{1,2}": {
+   "cost_ns": 82694.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "gca\\d{3}[a-z]{1,5}": {
+   "cost_ns": 69490.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "gcc\\d{1}[a-z]{1,5}": {
+   "cost_ns": 115995.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "ace\\d{2}[a-z]{1,2}": {
+   "cost_ns": 161173.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "acb\\d{1}[a-z]{1,2}": {
+   "cost_ns": 77796.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "dch\\d{2}[a-z]{1,3}": {
+   "cost_ns": 71244.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "bbe\\d{3}[a-z]{1,3}": {
+   "cost_ns": 66473.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 361
+  },
+  "ggc\\d{1}[a-z]{1,3}": {
+   "cost_ns": 77595.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "dcb\\d{2}[a-z]{1,2}": {
+   "cost_ns": 66998.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "chf\\d{1}[a-z]{1,2}": {
+   "cost_ns": 69880.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "eba\\d{2}[a-z]{1,2}": {
+   "cost_ns": 65073.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "ffb\\d{3}[a-z]{1,3}": {
+   "cost_ns": 65067.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 361
+  },
+  "dgg\\d{2}[a-z]{1,5}": {
+   "cost_ns": 83894.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "bbc\\d{1}[a-z]{1,4}": {
+   "cost_ns": 78204.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "efh\\d{3}[a-z]{1,3}": {
+   "cost_ns": 79474.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "ddc\\d{1}[a-z]{1,3}": {
+   "cost_ns": 76381.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "ffc\\d{2}[a-z]{1,5}": {
+   "cost_ns": 212046.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 311
+  },
+  "hhc\\d{2}[a-z]{1,3}": {
+   "cost_ns": 83324.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 311
+  },
+  "bba\\d{3}[a-z]{1,2}": {
+   "cost_ns": 76450.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 361
+  },
+  "cdc\\d{2}[a-z]{1,3}": {
+   "cost_ns": 68575.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 7,
+   "code_bytes": 320
+  },
+  "dgg\\d{1}[a-z]{1,5}": {
+   "cost_ns": 67764.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "cge\\d{3}[a-z]{1,2}": {
+   "cost_ns": 67538.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "ech\\d{1}[a-z]{1,5}": {
+   "cost_ns": 75867.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "ddg\\d{1}[a-z]{1,3}": {
+   "cost_ns": 67927.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 261
+  },
+  "edc\\d{3}[a-z]{1,5}": {
+   "cost_ns": 65321.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "edd\\d{1}[a-z]{1,4}": {
+   "cost_ns": 66667.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "bcb\\d{1}[a-z]{1,2}": {
+   "cost_ns": 67319.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  },
+  "hge\\d{3}[a-z]{1,2}": {
+   "cost_ns": 67595.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 8,
+   "code_bytes": 370
+  },
+  "dgf\\d{1}[a-z]{1,4}": {
+   "cost_ns": 66316.0,
+   "dfa_at": 1,
+   "jit_at": 1,
+   "calls": 1,
+   "states": 6,
+   "code_bytes": 270
+  }
+ },
+ "policies": [
+  {
+   "policy": "never",
+   "engine_ns": 1336950260,
+   "match_ns": 1336950260,
+   "build_ns": 0,
+   "promotions": 0,
+   "forced": 0,
+   "final_tiers": {
+    "backtrack": 199
+   },
+   "recovered": 0.0,
+   "vs_oracle": 43.985372362037886
+  },
+  {
+   "policy": "always-dfa",
+   "engine_ns": 183706902,
+   "match_ns": 18660368,
+   "build_ns": 165046534,
+   "promotions": 199,
+   "forced": 0,
+   "final_tiers": {
+    "dfa": 199
+   },
+   "recovered": 0.8826596866166794,
+   "vs_oracle": 6.0439170638602535
+  },
+  {
+   "policy": "always-jit",
+   "engine_ns": 219225546,
+   "match_ns": 4340764,
+   "build_ns": 214884782,
+   "promotions": 199,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 199
+   },
+   "recovered": 0.8554747260750819,
+   "vs_oracle": 7.212472715388129
+  },
+  {
+   "policy": "calls(2,4)",
+   "engine_ns": 32941263,
+   "match_ns": 23289301,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9980514213699468,
+   "vs_oracle": 1.0837603779895457
+  },
+  {
+   "policy": "calls(10,50)",
+   "engine_ns": 40674740,
+   "match_ns": 31022778,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9921324378892049,
+   "vs_oracle": 1.3381900869139867
+  },
+  {
+   "policy": "calls(100,500)",
+   "engine_ns": 123931368,
+   "match_ns": 114279406,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9284101812904885,
+   "vs_oracle": 4.077315014559141
+  },
+  {
+   "policy": "bytes(4k,64k)",
+   "engine_ns": 80830888,
+   "match_ns": 71178926,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9613980636016463,
+   "vs_oracle": 2.6593186099789383
+  },
+  {
+   "policy": "bytes(64k,1M)",
+   "engine_ns": 727634147,
+   "match_ns": 720884448,
+   "build_ns": 6749699,
+   "promotions": 5,
+   "forced": 0,
+   "final_tiers": {
+    "dfa": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.46635323379081034,
+   "vs_oracle": 23.939004955299396
+  },
+  {
+   "policy": "amortised(K=0.25)",
+   "engine_ns": 33672074,
+   "match_ns": 22588410,
+   "build_ns": 11083664,
+   "promotions": 12,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 192,
+    "dfa": 2
+   },
+   "recovered": 0.9974920794029966,
+   "vs_oracle": 1.1078039007166165
+  },
+  {
+   "policy": "amortised(K=0.5)",
+   "engine_ns": 33807519,
+   "match_ns": 24155557,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9973884136498626,
+   "vs_oracle": 1.1122600117162704
+  },
+  {
+   "policy": "amortised(K=1)",
+   "engine_ns": 36053255,
+   "match_ns": 26401293,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9956695911478874,
+   "vs_oracle": 1.1861442369879223
+  },
+  {
+   "policy": "amortised(K=2)",
+   "engine_ns": 41470524,
+   "match_ns": 31818562,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9915233674348364,
+   "vs_oracle": 1.3643712071897343
+  },
+  {
+   "policy": "amortised(K=4)",
+   "engine_ns": 49545755,
+   "match_ns": 40727967,
+   "build_ns": 8817788,
+   "promotions": 9,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 4,
+    "dfa": 1,
+    "backtrack": 194
+   },
+   "recovered": 0.9853428151564531,
+   "vs_oracle": 1.6300445482790815
+  },
+  {
+   "policy": "amortised(K=8)",
+   "engine_ns": 65164879,
+   "match_ns": 56347091,
+   "build_ns": 8817788,
+   "promotions": 9,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 4,
+    "dfa": 1,
+    "backtrack": 194
+   },
+   "recovered": 0.973388381602224,
+   "vs_oracle": 2.14391032598486
+  },
+  {
+   "policy": "adaptive(K=0.25)",
+   "engine_ns": 32486314,
+   "match_ns": 22834352,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9983996264031525,
+   "vs_oracle": 1.0687926549788656
+  },
+  {
+   "policy": "adaptive(K=0.5)",
+   "engine_ns": 33098280,
+   "match_ns": 23446318,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9979312450211718,
+   "vs_oracle": 1.0889262030907503
+  },
+  {
+   "policy": "adaptive(K=1)",
+   "engine_ns": 35165238,
+   "match_ns": 25513276,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9963492541188407,
+   "vs_oracle": 1.1569286711008115
+  },
+  {
+   "policy": "adaptive(K=2)",
+   "engine_ns": 39886198,
+   "match_ns": 30234236,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9927359655226189,
+   "vs_oracle": 1.3122472268609087
+  },
+  {
+   "policy": "adaptive(K=4)",
+   "engine_ns": 48282568,
+   "match_ns": 38630606,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9863096225816369,
+   "vs_oracle": 1.5884859711051742
+  },
+  {
+   "policy": "adaptive(K=8)",
+   "engine_ns": 61537101,
+   "match_ns": 53357847,
+   "build_ns": 8179254,
+   "promotions": 7,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 2,
+    "dfa": 3,
+    "backtrack": 194
+   },
+   "recovered": 0.9761649797680683,
+   "vs_oracle": 2.0245572199262925
+  },
+  {
+   "policy": "guarded/adaptive(K=0.25)",
+   "engine_ns": 32486314,
+   "match_ns": 22834352,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9983996264031525,
+   "vs_oracle": 1.0687926549788656
+  },
+  {
+   "policy": "guarded/adaptive(K=0.5)",
+   "engine_ns": 33098280,
+   "match_ns": 23446318,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9979312450211718,
+   "vs_oracle": 1.0889262030907503
+  },
+  {
+   "policy": "guarded/adaptive(K=1)",
+   "engine_ns": 35165238,
+   "match_ns": 25513276,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9963492541188407,
+   "vs_oracle": 1.1569286711008115
+  },
+  {
+   "policy": "adaptive+trip(K=0.25)",
+   "engine_ns": 32486314,
+   "match_ns": 22834352,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9983996264031525,
+   "vs_oracle": 1.0687926549788656
+  },
+  {
+   "policy": "adaptive+trip(K=0.5)",
+   "engine_ns": 33098280,
+   "match_ns": 23446318,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9979312450211718,
+   "vs_oracle": 1.0889262030907503
+  },
+  {
+   "policy": "adaptive+trip(K=1)",
+   "engine_ns": 35165238,
+   "match_ns": 25513276,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9963492541188407,
+   "vs_oracle": 1.1569286711008115
+  },
+  {
+   "policy": "adaptive+trip(K=2)",
+   "engine_ns": 39165131,
+   "match_ns": 29513169,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9932878497089309,
+   "vs_oracle": 1.2885242796115641
+  },
+  {
+   "policy": "adaptive+trip(K=4)",
+   "engine_ns": 46376705,
+   "match_ns": 36724743,
+   "build_ns": 9651962,
+   "promotions": 10,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 5,
+    "backtrack": 194
+   },
+   "recovered": 0.9877683159499054,
+   "vs_oracle": 1.5257834935081163
+  },
+  {
+   "policy": "adaptive+trip(K=8)",
+   "engine_ns": 57375653,
+   "match_ns": 48860194,
+   "build_ns": 8515459,
+   "promotions": 8,
+   "forced": 0,
+   "final_tiers": {
+    "jit": 3,
+    "dfa": 2,
+    "backtrack": 194
+   },
+   "recovered": 0.9793500337829656,
+   "vs_oracle": 1.887646487102726
+  }
+ ]
+}

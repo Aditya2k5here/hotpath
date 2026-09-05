@@ -1,0 +1,27 @@
+{
+ "fit": {
+  "bt_ns_per_step": 1196.024704025112,
+  "dfa_ns_fixed": 153.18680888769973,
+  "dfa_ns_per_byte": 29.56232444785578,
+  "jit_ns_fixed": 613.7855457896692,
+  "jit_ns_per_byte": 0.6321372041846164,
+  "dfa_build_log_const": 7.292685222769729,
+  "dfa_build_exp_nfa": 1.5271616868133475,
+  "dfa_build_exp_class": 0.5337741438625511,
+  "dfa_build_exp_span": 0.18921335280525112,
+  "code_bytes_fixed": 8.235978302282573,
+  "code_bytes_per_state": 37.23210946812467,
+  "code_bytes_per_edge": 1.3924427860582922,
+  "jit_build_ns_fixed": 58199.40881893904,
+  "jit_build_ns_per_code_byte": 663.8298732613906
+ },
+ "mean_relative_error": {
+  "dfa_build_constant_only": 0.6999081325443797,
+  "backtrack_step": 0.5954279668118252,
+  "dfa_call": 0.031214936154798065,
+  "jit_call": 0.10136818615016818,
+  "dfa_build": 0.47277162385226756,
+  "code_size": 0.07652461516967607,
+  "jit_build": 0.1720008932557807
+ }
+}
