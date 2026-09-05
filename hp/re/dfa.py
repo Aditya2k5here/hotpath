@@ -6,7 +6,7 @@ Three passes, each of which earns its place:
 state. Almost all of them are identical: for the pattern ``[a-z]+@[a-z]+``,
 every byte in ``a..z`` behaves the same way everywhere, as does every byte that
 appears in no class at all. So the bytes are partitioned into *equivalence
-classes* -- typically three or four of them -- and the DFA is built over classes
+classes*: typically three or four of them, and the DFA is built over classes
 instead. This is the difference between emitting a 2 KB jump table per state and
 emitting three compare instructions, and it is why the generated code is small
 enough to read.
@@ -14,15 +14,15 @@ enough to read.
 **Subset construction.** The usual powerset algorithm. Anchors are the reason it
 is not quite textbook. ``^`` and ``$`` are conditions on *position*, not on
 input, so rather than let position leak into the transition function each state
-carries two accept bits -- accepts here, and accepts here if the subject ends
-here -- and the automaton has two start states, one for "at the beginning of the
+carries two accept bits. Accepts here, and accepts here if the subject ends
+here, and the automaton has two start states, one for "at the beginning of the
 subject" and one for "somewhere in the middle". Both are decided once, at
 construction time; the running matcher never looks at a position again. That
 matters more than it sounds, because the generated machine code inherits the
 property: no bounds arithmetic beyond the loop counter.
 
 **Minimisation.** Moore's partition refinement. Fewer states means less
-generated code, which means the JIT pays for itself sooner -- and since the
+generated code, which means the JIT pays for itself sooner, and since the
 tiering policy is the thing being measured, making compilation cheaper is not a
 cosmetic improvement, it moves the results.
 """
@@ -38,8 +38,8 @@ class DFA(object):
 
     Two accept bits per state:
 
-    * ``accept_here[s]`` -- this state is a match, wherever the subject ends.
-    * ``accept_at_end[s]`` -- this state is a match *if the subject ends here*,
+    * ``accept_here[s]``: this state is a match, wherever the subject ends.
+    * ``accept_at_end[s]``: this state is a match *if the subject ends here*,
       which is what ``$`` means.
 
     Two start states, likewise: ``start`` is entered at offset 0 (where ``^``
@@ -152,7 +152,7 @@ def build_alphabet(automaton):
     Two bytes are equivalent iff they belong to exactly the same set of guards,
     so the whole partition falls out of one signature per byte. Classes are
     numbered by their smallest member, which keeps the numbering stable across
-    runs -- generated code that changes between runs is impossible to review.
+    runs. Generated code that changes between runs is impossible to review.
     """
     sets = automaton.byte_sets()
     signature = {}

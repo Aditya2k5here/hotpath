@@ -2,22 +2,22 @@
 
 A tiering policy can only be judged against the traffic it will see, and the
 right answer changes completely between one shape of traffic and another. These
-six are chosen so that no single policy wins all of them -- if one did, the
+six are chosen so that no single policy wins all of them. If one did, the
 question would not be worth asking.
 
-* ``one-shot`` -- four hundred patterns, one call each. Every promotion is pure
+* ``one-shot``: four hundred patterns, one call each. Every promotion is pure
   loss. The workload where the correct policy is to do nothing.
-* ``log-lines`` -- a handful of patterns over many short lines. The classic
+* ``log-lines``: a handful of patterns over many short lines. The classic
   ``grep``-shaped load, and the one where compiling obviously pays.
-* ``validate`` -- form-validation patterns over very short strings. High call
+* ``validate``: form-validation patterns over very short strings. High call
   count, negligible bytes: the case where a call-counting policy promotes and a
   byte-counting policy does not, and one of them is wrong.
-* ``bulk`` -- three patterns over quarter-megabyte blobs. Few calls, enormous
+* ``bulk``: three patterns over quarter-megabyte blobs. Few calls, enormous
   volume: the exact reverse of ``validate``.
-* ``adversarial`` -- patterns whose backtracking cost explodes on inputs that
+* ``adversarial``: patterns whose backtracking cost explodes on inputs that
   look ordinary. Promotion here is not an optimisation, it is the difference
   between answering and not.
-* ``zipf`` -- sixty patterns with realistically skewed popularity and mixed
+* ``zipf``: sixty patterns with realistically skewed popularity and mixed
   subject sizes. The mixture, and the one whose result generalises.
 
 Everything is seeded, so a trace is a value: two runs of the same workload are
@@ -173,7 +173,7 @@ def adversarial(seed=5, calls=90):
 
 
 def zipf(seed=6, calls=6000, n_patterns=40, alpha=1.1):
-    """Skewed popularity and mixed sizes -- the shape real traffic has.
+    """Skewed popularity and mixed sizes, the shape real traffic has.
 
     Pattern *i* is chosen with probability proportional to ``1/(i+1)**alpha``,
     so a few patterns carry most of the calls and a long tail is seen once or

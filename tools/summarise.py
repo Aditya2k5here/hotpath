@@ -33,7 +33,7 @@ BENCH_PATTERNS = [
 BENCH_SIZES = [64, 1024, 65536, 1048576]
 # Chosen so that none of the benchmark patterns match it: no address, no
 # digits, no "abb", none of the level words. Both engines then scan every byte,
-# which is the case worth measuring -- an early match measures who exits first,
+# which is the case worth measuring, an early match measures who exits first,
 # not who scans faster.
 FILLER = (b"the quick brown fox jumps over the lazy dog while very little "
           b"of consequence happens to it or to anyone else nearby ")
@@ -151,7 +151,7 @@ skipping. `^GET /api/v\d+/\w+` is anchored, so both engines answer after a
 byte or two; what is being compared is no longer scanning speed but the cost of
 getting into and out of the matcher, and a `ctypes` call is far more expensive
 than CPython dispatching to its own C. Compiling a pattern like this to machine
-code is a waste no matter how good the code is — which is the argument for the
+code is a waste no matter how good the code is, which is the argument for the
 tiering policy stated as a benchmark row rather than as a claim.
 
 ## 2. What did it cost to build, and what did that buy?
@@ -170,8 +170,8 @@ Build costs are measured per pattern, including `mmap` and `mprotect`.
 ## 3. The workloads
 
 Twelve traces. The first six are shapes real traffic takes; the `mix-N` family
-is one shape with a dial on it — a fixed hot core of five patterns over log
-lines, plus *N* patterns used exactly once — which is the axis the whole
+is one shape with a dial on it, a fixed hot core of five patterns over log
+lines, plus *N* patterns used exactly once, which is the axis the whole
 question turns on.
 
 | workload | calls | patterns | bytes | mean subject | tier-0 calls censored |
@@ -191,7 +191,7 @@ question turns on.
 under a 50,000-step budget; a call that exhausts it is recorded at the budget's
 cost, which is a *lower bound* on what it would really have cost. That
 understates how much promotion was worth, which shrinks the denominator of every
-"recovered" figure. Where censoring is heavy — `bulk` is 100%, `zipf` about 20% —
+"recovered" figure. Where censoring is heavy. `bulk` is 100%, `zipf` about 20%,
 the multiple-of-optimum column is the honest one and the recovered column should
 be ignored.
 
@@ -203,7 +203,7 @@ not a good schedule: tiers are monotone, so a schedule is two indices, and the
 minimum over all of them falls out of prefix sums in linear time
 (`hp/eval/oracle.py`, checked against exhaustive search in the test suite).
 
-Cost as a multiple of that optimum — 1.00 is perfect, lower is better:
+Cost as a multiple of that optimum. 1.00 is perfect, lower is better:
 
 """)
     parts.append(policy_table(tables, lambda r: "%.2f" % r["vs_oracle"]))
@@ -251,14 +251,14 @@ With no cold patterns at all, compiling everything on sight *is* optimal and the
 policies cost 13–25%% for nothing. By 50 cold patterns `always-jit` is already
 3.7× off; by 2000 it is worse than never compiling at all. Nothing about the hot
 core changed. The entire value of a tiering policy is insurance against the
-fraction of your patterns that are used once — and since you cannot know that
+fraction of your patterns that are used once, and since you cannot know that
 fraction in advance, the insurance is worth its 13%%.
 
 ## 6. Two results that were not the plan
 
 **The learned build cost barely helped.** `adaptive` replaces the static
 build-cost estimate with a running average of builds actually observed. The
-reasoning was sound — build cost is the model's worst-fitting term — but across
+reasoning was sound. Build cost is the model's worst-fitting term, but across
 twelve workloads it is roughly a wash with `amortised`, winning clearly only at
 the extreme end of the sweep (%.2f× vs %.2f× at `mix-5000`). Reported because it
 was the interesting idea and it mostly did not pay.
@@ -267,7 +267,7 @@ was the interesting idea and it mostly did not pay.
 every policy that decides from observed cost lost by one to two orders of
 magnitude, and no amount of tuning K moved it. That is structural: a reactive
 policy needs evidence, and for these patterns the first bad call *is* the
-disaster. The fix is not a better policy, it is not being reactive — a static
+disaster. The fix is not a better policy, it is not being reactive, a static
 check for nested or ambiguous unbounded repetition
 (`hp.re.parser.risky`), which flags all three pathological patterns and none of
 the 36 benign ones in the test corpus, and sends them straight to the DFA. That
@@ -302,7 +302,7 @@ Per-call costs fit well; **DFA build cost is the weak term and stays weak.**
 Subset-construction cost tracks the number of DFA states *before* minimisation,
 and that is not a function of anything visible beforehand:
 `[A-Z]{2}\\d{2}[A-Z0-9]{4,20}` has 59 NFA states, 9 DFA states, and passes
-through 3312 on the way — a hundred times the cost of patterns that look just
+through 3312 on the way, a hundred times the cost of patterns that look just
 like it. Fitting against pattern length gave a 1400%% error; a power law in NFA
 size, class count and counted-repetition span gets it to the figure above, which
 is better and still bad. The `adaptive` policy exists because of this term, and

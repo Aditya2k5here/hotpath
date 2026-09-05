@@ -3,14 +3,14 @@
 Every tiering policy is a bet on the future made from the past, and the bet has
 an asymmetric payoff. Promote too eagerly and you pay a subset construction and
 a syscall for a pattern used twice. Promote too late and you have already burned
-the time compiling would have saved -- and in the pathological case, rather more
+the time compiling would have saved, and in the pathological case, rather more
 than that.
 
 The policies here range from the two trivial answers, through the counter-based
 heuristic every real JIT actually ships, to one that reasons about cost
 explicitly. They share an interface: given a pattern's history, name a tier.
 None of them may look at the subject beyond its length, and none of them may
-look at the future -- that privilege belongs to the oracle in
+look at the future. That privilege belongs to the oracle in
 :mod:`hp.eval.oracle`, which exists to say how much was on the table.
 """
 
@@ -28,9 +28,9 @@ class Policy(object):
     def observe_build(self, pattern, tier, ns):
         """Told what a promotion actually cost, once it has happened.
 
-        Most policies ignore it. It is here because the alternative -- letting
-        one policy reach into the engine for feedback the others cannot see --
-        would make the comparison meaningless.
+        Most policies ignore it. It is here because the alternative. Letting
+        one policy reach into the engine for feedback the others cannot see.
+Would make the comparison meaningless.
         """
 
     def __repr__(self):
@@ -64,7 +64,7 @@ class Fixed(Policy):
 class CallCount(Policy):
     """Promote after a fixed number of calls: the counter every JIT ships.
 
-    Simple, robust, and blind to size -- it treats a pattern called ten times on
+    Simple, robust, and blind to size. It treats a pattern called ten times on
     ten bytes exactly like one called ten times on ten megabytes. Whether that
     blindness costs anything is an empirical question, and it is one of the
     questions the evaluation answers.
@@ -147,13 +147,13 @@ class CostModel(object):
         cost tracks the number of DFA states *before* minimisation, and that
         number is not a function of anything observable beforehand:
         ``[A-Z]{2}\d{2}[A-Z0-9]{4,20}`` has 59 NFA states and 9 DFA states, and
-        passes through 3312 on the way -- a hundred times the cost of patterns
+        passes through 3312 on the way, a hundred times the cost of patterns
         that look just like it. Fitting against pattern length was useless;
         against NFA size and class count it is merely bad, and the calibration
         output says by how much.
 
-        The form is multiplicative rather than additive -- a power law in the
-        NFA size, the class count and the counted-repetition span -- because the
+        The form is multiplicative rather than additive, a power law in the
+        NFA size, the class count and the counted-repetition span, because the
         quantity spans two orders of magnitude and an additive fit spends all
         its accuracy on the largest case. That change alone took the mean
         relative error from 352% to 55%; it is still the worst-fitting part of
@@ -173,7 +173,7 @@ class CostModel(object):
                 + self.code_bytes_per_edge * n_edges)
 
     def jit_build_cost(self, pattern):
-        """Estimated -- but by this point the DFA exists, so it is a good one.
+        """Estimated, but by this point the DFA exists, so it is a good one.
 
         Deliberately phrased in terms of the state and edge counts rather than
         the DFA object, so that a policy can be driven by a replay of recorded
@@ -205,7 +205,7 @@ class Amortised(Policy):
     promote when that excess reaches ``K`` times the estimated build cost.
 
     ``K = 1`` promotes as soon as the promotion has notionally broken even on
-    past traffic alone -- optimistic, since past traffic is spent and only
+    past traffic alone. Optimistic, since past traffic is spent and only
     future traffic can actually be recovered. ``K = 4`` demands the pattern
     prove itself four times over. Sweeping ``K`` is the experiment: it turns
     "when should you compile" from an opinion into a curve.
@@ -260,14 +260,14 @@ class Adaptive(Amortised):
     The estimate a cost-based policy most needs is the one it can least compute:
     what the next subset construction will cost. So this one stops trying. It
     starts from the model's guess and, every time a promotion actually happens,
-    folds the measured cost into a running average -- one number per tier, shared
+    folds the measured cost into a running average, one number per tier, shared
     across every pattern in the process.
 
     The bet is that build cost is far more predictable *across patterns in one
     workload* than it is *from one pattern's text*, because a workload's
     patterns tend to resemble each other. When that holds this should track the
-    truth within a few promotions. When it does not -- a workload of one
-    expensive pattern among many cheap ones -- the average is dragged the wrong
+    truth within a few promotions. When it does not, a workload of one
+    expensive pattern among many cheap ones, the average is dragged the wrong
     way and this should do worse than the static estimate. Both cases appear in
     the evaluation.
 
@@ -312,8 +312,8 @@ class Guarded(Policy):
     admits exponential backtracking (:func:`hp.re.parser.risky`) skip tier 0
     entirely; everything else is handed to the wrapped policy unchanged. The
     check is a walk of the AST, it runs once per pattern, and it is the only
-    place in this project where a decision is made without measurement --
-    because measurement is exactly what is unaffordable here.
+    place in this project where a decision is made without measurement,
+because measurement is exactly what is unaffordable here.
     """
 
     def __init__(self, inner, model=None):
@@ -329,8 +329,8 @@ class Guarded(Policy):
         if getattr(pattern, "risky", False):
             return max(E.TIER_DFA, base)
         # The second veto, from the same principle. Tier 0 is never faster per
-        # byte than the DFA -- it is the same scan with interpretive overhead on
-        # top -- so if a single subject is long enough that even the DFA's
+        # byte than the DFA. It is the same scan with interpretive overhead on
+        # top, so if a single subject is long enough that even the DFA's
         # per-byte cost would exceed the build, running it on the backtracker
         # cannot pay off no matter what happens later. There is nothing to
         # learn from that call except how long it takes.
@@ -339,8 +339,8 @@ class Guarded(Policy):
     def _single_call_tier(self, pattern, n):
         """The cheapest tier for *this one call*, builds included.
 
-        Tier 0 is never faster per byte than the DFA -- it is the same left-to-
-        right scan with interpretive overhead on top -- so its cost is at least
+        Tier 0 is never faster per byte than the DFA. It is the same left-to-
+        right scan with interpretive overhead on top, so its cost is at least
         the DFA's. That gives a lower bound good enough to compare against, and
         the comparison settles the question without waiting: if paying for the
         machine code is cheaper than scanning this single subject one tier down,

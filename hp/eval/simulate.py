@@ -4,7 +4,7 @@ Policies are compared here rather than by re-running them, for one reason: the
 oracle optimises over the numbers :mod:`hp.eval.measure` recorded, so a policy
 scored by a fresh timing run is being compared against a different set of
 measurements than the one it is being judged by. Machine noise between the two
-passes then shows up as a policy beating the optimum -- which happened, and
+passes then shows up as a policy beating the optimum, which happened, and
 which is nonsense.
 
 Driving both from the same recorded costs removes that entirely: a policy cannot
@@ -13,8 +13,8 @@ attributable to their decisions rather than to what else the machine was doing.
 
 The policies themselves are the real objects from :mod:`hp.policy`, unmodified.
 They see a stand-in pattern exposing exactly the attributes the live engine
-exposes -- ``calls``, ``bytes_seen``, ``steps``, ``tier``, ``ceiling``,
-``n_states``, ``n_edges`` -- so what is simulated is the decision, never the
+exposes. ``calls``, ``bytes_seen``, ``steps``, ``tier``, ``ceiling``,
+``n_states``, ``n_edges``: so what is simulated is the decision, never the
 policy. :func:`hp.eval.run.validate` then re-runs the same policies for real and
 reports how far the simulation was off, which is the check that this shortcut is
 allowed.

@@ -19,7 +19,7 @@ The shape of the generated function is one basic block per DFA state:
 
 Register assignment is fixed and deliberately tiny: ``rdi`` the subject,
 ``rsi`` its length, ``rcx`` the index, ``rax`` scratch, ``r11`` the class table.
-Nothing is spilled, nothing is saved, there is no frame -- a DFA needs no stack,
+Nothing is spilled, nothing is saved, there is no frame, a DFA needs no stack,
 which is the same property that makes it immune to the blowup in tier 0.
 
 Three things the generator does that a transcription of the state table would
@@ -30,8 +30,8 @@ compare only for the minority classes and a single ``jmp`` for the rest. For
 ``[a-z]+`` that is one comparison per byte instead of one per class.
 
 **States that cannot change their mind return immediately.** When the set of
-accepting states is closed under transitions -- exactly the case for the
-``.*P.*`` automaton the search entry point uses -- reaching one settles the
+accepting states is closed under transitions. Exactly the case for the
+``.*P.*`` automaton the search entry point uses. Reaching one settles the
 answer, so it compiles to ``mov eax, 1; ret``. The mirror image matters just as
 much: a non-accepting state whose every transition is a self-loop is hopeless,
 and an anchored pattern reaches one after its first byte. Compiling that to
@@ -84,7 +84,7 @@ def _absorbing_rejects(dfa):
     generated code would happily scan the rest of the subject inside it. That is
     exactly what happens to an anchored pattern: ``^GET`` wrapped as ``.*^GET.*``
     can only match at offset zero, so from byte one onwards the answer is
-    already no -- and without this the engine reads the other megabyte to
+    already no, and without this the engine reads the other megabyte to
     confirm it. Symmetric to :func:`_absorbing_accepts`, and it is what stopped
     anchored patterns losing to CPython by 10x.
     """

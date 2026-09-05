@@ -2,8 +2,8 @@
 
 The point of this module is to make the oracle in :mod:`hp.eval.oracle` real
 rather than modelled. Instead of assuming a cost function and asking which
-policy wins under it, this replays the trace three times -- once pinned to each
-tier -- and records the wall-clock nanoseconds each individual call actually
+policy wins under it, this replays the trace three times. Once pinned to each
+tier, and records the wall-clock nanoseconds each individual call actually
 took. The oracle then optimises over *those* numbers, so "the best possible
 policy would have taken 4.1 ms" is a statement about this machine, not about a
 spreadsheet.
@@ -13,7 +13,7 @@ direction.
 
 **Tier 0 is censored.** A backtracking engine on a large subject does not
 finish, so it runs under a step budget and a call that exhausts the budget is
-recorded at the budget's cost. Its true cost is higher -- often unboundedly so.
+recorded at the budget's cost. Its true cost is higher, often unboundedly so.
 That understates how much promotion was worth, which understates the savings
 available, which makes every policy's recovered fraction look *worse* than it
 is. A censored count is reported alongside so the reader can see how much of the

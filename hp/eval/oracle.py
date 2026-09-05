@@ -7,8 +7,8 @@ rounding error of perfect. So every result in this project is reported as a
 *fraction of what was achievable*, and this module computes the denominator.
 
 The oracle is given the entire trace in advance and asked, for each pattern,
-where to build the DFA and where to compile it. Tiers are monotone -- once
-promoted a pattern stays promoted -- so a schedule is just two indices, and the
+where to build the DFA and where to compile it. Tiers are monotone. Once
+promoted a pattern stays promoted, so a schedule is just two indices, and the
 exact optimum over all of them falls out of prefix sums in linear time:
 
     total(i, j) = S0[i] + (S1[j] - S1[i]) + (S2[n] - S2[j])
@@ -23,10 +23,10 @@ search, no approximation: this is the optimum, not a good schedule.
 Two weaker oracles are computed alongside, because the gap between them is
 itself a result:
 
-* **best fixed tier** -- the best single tier for the whole trace, chosen in
+* **best fixed tier**: the best single tier for the whole trace, chosen in
   hindsight. The difference between this and the full oracle is exactly the
   value of being able to change tier at all.
-* **free promotion** -- the full oracle with build costs set to zero. The
+* **free promotion**: the full oracle with build costs set to zero. The
   difference between this and the full oracle is exactly what compilation costs.
 """
 
@@ -125,7 +125,7 @@ def recovered(policy_ns, never_ns, oracle_ns):
 
     ``1.0`` is the oracle; ``0.0`` is doing nothing; negative means the policy
     made things worse than not tiering at all, which several of them do on at
-    least one workload -- that is the interesting part.
+    least one workload. That is the interesting part.
     """
     available = never_ns - oracle_ns
     if available <= 0:

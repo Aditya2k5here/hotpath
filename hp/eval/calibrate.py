@@ -5,7 +5,7 @@ step costs, how much a byte costs at each tier, how much a subset construction
 costs. Those are properties of a machine, not of an algorithm, and a policy
 carrying someone else's constants is a policy making someone else's decisions.
 The default constants shipped in :class:`hp.policy.CostModel` are deliberately a
-little wrong, and the evaluation reports what that costs -- so calibration is
+little wrong, and the evaluation reports what that costs, so calibration is
 not a setup step to be skipped, it is one of the variables under test.
 
 Everything here is ordinary least squares on measurements taken seconds earlier,
@@ -29,7 +29,7 @@ CAL_PATTERNS = [
     r"[0-9a-f]{8}-[0-9a-f]{4}", r"\w+;\w+;\w+", r"<[a-z]+ [a-z]+=\"[^\"]*\">",
 ]
 # Build cost does not depend on the subject, so this list is free to include
-# patterns that would match the calibration text -- and it needs to, because the
+# patterns that would match the calibration text, and it needs to, because the
 # spread of counted-repetition spans is what the build-cost model turns on.
 BUILD_PATTERNS = CAL_PATTERNS + [
     r"[a-z]{1,12}", r"(ab|cd|ef){2,8}", r"x{3}y{3}", r"\w{5,9}@\w{2,6}",
@@ -77,8 +77,8 @@ def _solve(rows, targets, weights=None):
 def fit_relative(rows, targets):
     """Fit minimising *relative* error, not absolute.
 
-    These quantities span four orders of magnitude -- a backtracking call can
-    cost 3 microseconds or 30 milliseconds -- and ordinary least squares spends
+    These quantities span four orders of magnitude, a backtracking call can
+    cost 3 microseconds or 30 milliseconds, and ordinary least squares spends
     all its effort on the largest points, producing a model that is 1000% wrong
     everywhere the policy actually operates. Weighting each residual by
     ``1/y**2`` and iterating targets the error the policy cares about: being
@@ -93,8 +93,8 @@ def fit_relative(rows, targets):
             coef = _solve(sub, targets, [1.0 / (q * q) for q in pred])
         worst = min(range(len(coef)), key=lambda i: coef[i])
         # A negative coefficient means "this feature makes the prediction
-        # smaller", which for a cost model is not a fit, it is an artefact --
-        # and it produces negative predicted costs on inputs outside the
+        # smaller", which for a cost model is not a fit, it is an artefact.
+# and it produces negative predicted costs on inputs outside the
         # calibration set. Drop the offender and refit rather than shipping it.
         if coef[worst] >= 0 or len(active) == 1:
             break

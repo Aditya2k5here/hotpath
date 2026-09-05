@@ -3,8 +3,8 @@
 Independent is the point. The assembler builds bytes from a mnemonic; this
 builds a mnemonic from bytes, by a separate reading of the encoding rules. The
 test suite assembles a program, disassembles the result, and requires the two
-texts to match. A REX bit in the wrong field, a ModRM ``reg`` and ``rm`` swapped
--- the classic ways to get x86 wrong -- produce a text mismatch in a unit test
+texts to match. A REX bit in the wrong field, a ModRM ``reg`` and ``rm`` swapped,
+the classic ways to get x86 wrong. Produce a text mismatch in a unit test
 instead of a wrong answer or a crash inside generated code, where there is no
 debugger and no stack trace.
 

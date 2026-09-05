@@ -11,7 +11,7 @@ Every catastrophic-backtracking outage you have read about is that trade being
 made silently. Leaving them out is what makes the rest of this project possible.
 
 Character classes are represented as 256-bit sets over bytes, computed at parse
-time, so everything downstream -- NFA, DFA, code generator -- deals with one
+time, so everything downstream. NFA, DFA, code generator. Deals with one
 uniform notion of "which input bytes take this edge" and never re-interprets
 syntax.
 """
@@ -321,7 +321,7 @@ def shape(node):
     """``(nodes, distinct byte classes, counted-repetition span)`` for an AST.
 
     A tiering policy has to guess what a subset construction will cost *before*
-    paying for it. Pattern length is the obvious guess and a bad one -- ``.*``
+    paying for it. Pattern length is the obvious guess and a bad one. ``.*``
     and ``[^\n]{500}`` are the same length and nothing like the same cost. The
     parsed shape is nearly as cheap to obtain (tier 0 has already parsed) and
     describes the automaton far better: node count bounds the NFA size, and the
@@ -342,8 +342,8 @@ def shape(node):
             for opt in n.options:
                 walk(opt)
         elif isinstance(n, Repeat):
-            # The span of a counted repetition -- the number of *optional*
-            # copies -- is the one syntactic feature that predicts a subset
+            # The span of a counted repetition, the number of *optional*
+            # copies. Is the one syntactic feature that predicts a subset
             # construction blowing up, because each optional copy is a bit in
             # the state set the powerset has to track separately.
             if n.max is not None:
@@ -384,17 +384,17 @@ def risky(node):
 
     Two rules, both syntactic and both cheap:
 
-    * **Nested unbounded repetition** -- ``(a+)+``. The outer loop can split a
+    * **Nested unbounded repetition**: ``(a+)+``. The outer loop can split a
       run of ``a``s among its iterations in exponentially many ways, and a
       backtracking engine tries all of them before concluding there is no match.
-    * **Unbounded repetition over an ambiguous alternation** -- ``(x|xx)+``.
+    * **Unbounded repetition over an ambiguous alternation**: ``(x|xx)+``.
       Branches of differing minimum length under a star give the same splitting
       freedom without any nesting to see.
 
     This is a heuristic and it is deliberately one-sided: it may call a safe
     pattern risky, and the cost of that is one subset construction. It exists
-    because the evaluation showed something no amount of policy tuning fixed --
-    a pattern that can detonate must not be run on the backtracker even once,
+    because the evaluation showed something no amount of policy tuning fixed,
+a pattern that can detonate must not be run on the backtracker even once,
     and by the time a reactive policy has evidence, the detonation has happened.
     """
     if isinstance(node, Repeat):
@@ -429,7 +429,7 @@ def unanchored(node):
     consulted for the accept bit and never for a transition, so the trailing
     ``.*`` cannot smuggle bytes in after it.
 
-    The wildcard used here is *every* byte, newline included -- unlike ``.`` in
+    The wildcard used here is *every* byte, newline included. Unlike ``.`` in
     the pattern language. A search is over the whole subject, not over lines.
     """
     any_star = Repeat(Class(ALL_BYTES, "any"), 0, None)

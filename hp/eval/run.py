@@ -8,14 +8,14 @@ Usage::
     python -m hp.eval.run report                       # collate everything
 
 The measurement pass is separated from the policy pass and cached on disk
-because the measurement is the expensive half -- it replays the whole trace on
-the backtracking tier -- and because it must be done exactly once per workload.
+because the measurement is the expensive half. It replays the whole trace on
+the backtracking tier, and because it must be done exactly once per workload.
 Re-measuring between policies would let machine noise walk between the runs
 being compared, and the comparison is the entire point.
 
 Each policy is executed for real: the patterns are genuinely compiled, the
 generated code genuinely runs. Reported numbers are wall-clock nanoseconds split
-three ways -- matching, building, and the policy's own decision overhead -- so
+three ways. Matching, building, and the policy's own decision overhead, so
 that a policy cannot look good by moving its cost somewhere the total does not
 see.
 """
@@ -52,8 +52,8 @@ def policy_entries():
     """Every policy under test, with the cost-based ones calibrated.
 
     The calibrated model is loaded once and shared, so ``amortised`` and
-    ``adaptive`` differ only in where their build-cost estimate comes from --
-    which is the comparison the experiment exists to make.
+    ``adaptive`` differ only in where their build-cost estimate comes from,
+which is the comparison the experiment exists to make.
     """
     from . import calibrate as cal
     model, _ = cal.load(_path(CALIBRATION))
@@ -214,8 +214,8 @@ def do_validate(name, only=None):
     """Run policies for real and compare with what the replay predicted.
 
     The replay is a shortcut, and a shortcut has to be audited. This executes
-    the same policies against the same trace with the real engine -- real subset
-    constructions, real mmap, real generated code -- and reports the error. If
+    the same policies against the same trace with the real engine. Real subset
+    constructions, real mmap, real generated code, and reports the error. If
     the two disagree by more than measurement noise, the replay is wrong and so
     is every number derived from it.
     """

@@ -15,7 +15,7 @@ end. Callers name states, never offsets.
 **Every instruction records what it was asked to emit.** ``self.listing`` keeps
 the mnemonic alongside the byte range it produced. The disassembler in
 :mod:`hp.jit.disasm` decodes those same bytes independently, and the test suite
-asserts the two agree -- so a wrong encoding shows up as a disagreement rather
+asserts the two agree, so a wrong encoding shows up as a disagreement rather
 than as a segfault three layers away.
 
 Register numbering is the architectural one (RAX=0 .. R15=15), so ``reg & 7``
@@ -106,7 +106,7 @@ class Assembler(object):
         return self._emit(out, "mov %s, %d" % (REG_NAMES32[dst], imm))
 
     def movabs(self, dst, imm):
-        """``mov r64, imm64`` -- how a raw address gets into a register."""
+        """``mov r64, imm64``: how a raw address gets into a register."""
         out = [_rex(w=1, b=dst >> 3), 0xB8 + (dst & 7)]
         out += list(struct.pack("<Q", imm & 0xFFFFFFFFFFFFFFFF))
         return self._emit(out, "movabs %s, 0x%x" % (REG_NAMES64[dst], imm))

@@ -7,7 +7,7 @@ way to write a pattern whose *automaton* blows up, only one whose subset
 construction does, and that is bounded and detectable.
 
 Anchors are the one subtlety. ``^`` and ``$`` do not consume input, so they are
-epsilon edges -- but conditional ones, valid only at the start or the end of the
+epsilon edges, but conditional ones, valid only at the start or the end of the
 subject. They are carried through as guarded edges and resolved when the epsilon
 closure is taken, because that is the only place the position is known.
 """
@@ -94,8 +94,8 @@ def size(node):
     Mirrors ``_emit`` case for case. It exists because counted repetition is the
     one construct whose cost is invisible in the source text: ``[A-Z0-9]{4,20}``
     is seven characters and seventeen copies of an automaton. A policy deciding
-    whether to pay for a subset construction can afford this -- it is a walk of
-    the AST -- and cannot afford to be surprised by it.
+    whether to pay for a subset construction can afford this. It is a walk of
+    the AST, and cannot afford to be surprised by it.
     """
     if isinstance(node, (P.Empty, P.Class, P.Anchor)):
         return 2

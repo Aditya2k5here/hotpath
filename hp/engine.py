@@ -10,8 +10,8 @@ Tier  Machinery                     Cost to enter           Cost to run
 2     that DFA as x86-64            code generation + mmap  linear, native
 ===== ============================= ======================= ==================
 
-Every tier answers exactly one question -- *does this pattern occur in this
-subject* -- and the test suite requires all three to agree with Python's ``re``
+Every tier answers exactly one question. *does this pattern occur in this
+subject*: and the test suite requires all three to agree with Python's ``re``
 on every input it is given. Interchangeability is what makes promotion safe: the
 engine can change tiers between two calls and no caller can tell, except by
 timing.
@@ -46,8 +46,8 @@ class Pattern(object):
     """One pattern, its tiers, and the accounting for both.
 
     ``ceiling`` is the highest tier this pattern can reach. It drops when a
-    promotion turns out to be impossible -- an exponential subset construction,
-    or an alphabet too wide for the code generator -- so the engine degrades to
+    promotion turns out to be impossible, an exponential subset construction,
+    or an alphabet too wide for the code generator, so the engine degrades to
     a slower tier that works rather than failing.
     """
 
@@ -108,7 +108,7 @@ class Pattern(object):
         Returns the nanoseconds spent, or ``None`` if nothing happened. Failure
         to build lowers the ceiling instead of raising, because from the
         caller's point of view a pattern that cannot be compiled is not an
-        error -- it is a pattern that stays interpreted.
+        error. It is a pattern that stays interpreted.
         """
         target = min(target, self.ceiling)
         if target <= self.tier:
@@ -172,8 +172,8 @@ class Engine(object):
     """A cache of patterns plus a policy that decides when to promote them.
 
     The policy sees the pattern's history and returns a target tier; the engine
-    applies it. Keeping the two apart is what makes the experiment possible --
-    the same recorded workload can be replayed against every policy, including
+    applies it. Keeping the two apart is what makes the experiment possible,
+the same recorded workload can be replayed against every policy, including
     the hindsight oracle, with no other change.
     """
 

@@ -7,7 +7,7 @@ read+execute, and hand out a ``ctypes`` function pointer into it.
 
 The second generation pass is asserted to be the same length as the first. If
 that ever fails, an address-dependent instruction has crept into the generator
-and the mapping would be sized wrong -- better to hear about it here than to
+and the mapping would be sized wrong. Better to hear about it here than to
 execute off the end of a page.
 """
 
@@ -21,8 +21,8 @@ class Program(object):
 
     ``call(subject)`` answers the same question as the interpreted tiers: does
     this pattern match. The mapping is released when the object is dropped, so a
-    :class:`Program` owns its memory rather than leaking a page per pattern --
-    which matters, because the policy experiments compile thousands of them.
+    :class:`Program` owns its memory rather than leaking a page per pattern,
+which matters, because the policy experiments compile thousands of them.
     """
 
     def __init__(self, dfa, abi="sysv"):
@@ -46,7 +46,7 @@ class Program(object):
 
     def __call__(self, subject):
         # ``c_char_p`` hands the CPU a pointer to the bytes object's own
-        # storage. Copying into a buffer first -- the obvious way -- costs more
+        # storage. Copying into a buffer first, the obvious way. Costs more
         # than the match does above a few kilobytes, and turns a measurement of
         # generated code into a measurement of memcpy. The length is passed
         # separately, so embedded NULs are not a problem.
@@ -76,7 +76,7 @@ def compile_dfa(dfa, abi="sysv"):
 
 
 def listing_for(dfa, table_addr=0x0, abi="sysv"):
-    """Disassemble a DFA's code without executing -- or mapping -- anything.
+    """Disassemble a DFA's code without executing, or mapping. Anything.
 
     This is the path that works on any machine: it needs no ``mmap``, no
     ``PROT_EXEC``, and no x86 CPU. On a Windows laptop you can still read

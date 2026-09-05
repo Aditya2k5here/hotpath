@@ -2,7 +2,7 @@
 
 The central invariant is interchangeability: the engine may change tier between
 any two calls, and no caller may be able to tell. Everything else here defends a
-specific claim made in the results -- that the ceiling drops instead of raising,
+specific claim made in the results. That the ceiling drops instead of raising,
 that the step budget cannot hang the engine, that the oracle really is optimal,
 and that replaying a policy over recorded costs gives the same answer as running
 it for real.

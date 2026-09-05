@@ -32,7 +32,7 @@ class Exhausted(Exception):
 class StepLimit(Exhausted):
     """The step budget ran out.
 
-    Not a bug in the pattern and not a bug in the input -- it is the
+    Not a bug in the pattern and not a bug in the input. It is the
     *combination* that is pathological, which is exactly the thing no amount of
     static analysis of the pattern can predict and the tiering policy therefore
     has to survive.
@@ -47,8 +47,8 @@ class StackLimit(Exhausted):
     """The interpreter stack ran out.
 
     A backtracking matcher recurses once per input byte it is holding a choice
-    point for, so on a long enough subject it dies of depth rather than of time
-    -- which is the same failure that made long inputs crash real regex engines
+    point for, so on a long enough subject it dies of depth rather than of time,
+which is the same failure that made long inputs crash real regex engines
     for years. It is caught rather than propagated because from the engine's
     point of view it means exactly what a step-limit does: this tier cannot
     answer, promote.
@@ -83,7 +83,7 @@ class Matcher(object):
     def match_end(self, data, start):
         """Longest match beginning at ``start``; ``-1`` if none.
 
-        Backtracking is greedy, not longest -- ``a|ab`` stops at ``a``. To keep
+        Backtracking is greedy, not longest, ``a|ab`` stops at ``a``. To keep
         the three tiers interchangeable this asks for each candidate end
         explicitly, longest first, instead of reporting whatever greedy happened
         to reach. It costs a factor of the subject length, which is a fair price
@@ -155,8 +155,8 @@ class Matcher(object):
         """Greedy: take another copy if allowed, else stop here and continue.
 
         The ``p == pos`` guard is what stops ``(a*)*`` from looping forever on a
-        body that can match the empty string. It is not an optimisation --
-        without it the engine does not terminate, which is a fact about
+        body that can match the empty string. It is not an optimisation.
+Without it the engine does not terminate, which is a fact about
         backtracking engines that people tend to discover the hard way.
         """
         high = node.max

@@ -15,13 +15,13 @@ code means the code's own addresses do not move when the table changes size.
 address in a ``movabs``, and the address is not known until the mapping exists,
 and the mapping's size is not known until the code is generated. The loop is
 broken by generating once against a dummy address purely to learn the size, then
-again against the real one -- ``movabs`` is fixed-width, so the second pass is
+again against the real one. ``movabs`` is fixed-width, so the second pass is
 byte-for-byte the same length, and :func:`allocate` asserts it rather than
 trusting it.
 
 This module is Unix-only: it is the one part of the project that cannot run on
-Windows. Everything else -- parsing, the automata, code *generation*, and the
-disassembler that prints the result -- is pure Python and runs anywhere, which
+Windows. Everything else. Parsing, the automata, code *generation*, and the
+disassembler that prints the result. Is pure Python and runs anywhere, which
 is deliberate. You can inspect the machine code hotpath generates on a machine
 that cannot execute it.
 """
@@ -81,7 +81,7 @@ def available():
     """Can this machine execute generated code? Probed once, by trying it.
 
     Cached, because the answer cannot change during a run and the probe is a
-    pair of syscalls -- and this is consulted on every promotion.
+    pair of syscalls, and this is consulted on every promotion.
     """
     if _AVAILABLE:
         return _AVAILABLE[0]
