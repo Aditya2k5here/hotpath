@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hotpath"
+version = "0.1.0"
+description = "A regex engine that compiles to x86-64 at runtime, and a study of when that is worth doing"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Aditya S" }]
+keywords = ["regex", "jit", "x86-64", "automata", "compilers"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Compilers",
+  "Topic :: Text Processing",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+hotpath = "hp.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["hp*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

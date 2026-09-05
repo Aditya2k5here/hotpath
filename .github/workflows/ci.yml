@@ -1,0 +1,41 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.9", "3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install pytest pyflakes
+      - name: tests
+        run: python -m pytest tests -q
+      - name: the engine runs end to end
+        run: |
+          python -m hp compile 'a+b'
+          python -m hp match '[a-z]+@[a-z]+' 'write to me@example'
+          python -m hp analyse '^(a+)+$'
+      - name: lint
+        run: python -m pyflakes hp tests tools
+
+  no-jit:
+    name: pure-python paths without executable memory
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pytest
+      - name: disassembly must work with no CPU to run it
+        run: python -c "from hp.jit import program, codegen; from hp.re import dfa, nfa, parser; d=dfa.minimise(dfa.build(nfa.build(parser.unanchored(parser.parse('a+b'))))); print(program.listing_for(d))"
