@@ -71,8 +71,8 @@ It wins because of two places where it **refuses to gather evidence**:
   from that call except how long it takes.
 
 Both checks are static, both run once per pattern, and together they take the
-adversarial workload from 67× the optimum to exactly 1.00× and the bulk workload
-from 3.20× to 1.21×.
+adversarial workload from 43.83× the optimum to exactly 1.00× and the bulk
+workload from 3.20× to 1.21×.
 
 ## When is a tiering policy worth having at all?
 
